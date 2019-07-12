@@ -1,7 +1,11 @@
 var app = new Vue({
     el: '#app',
     template: `
-<div>times, {{times}} computed: {{cTimes}}</div>
+<div>
+<button v-on:click="add">add</button>
+<button v-on:click="sub">sub</button>
+<span>times, {{times}} computed: {{cTimes}}</span>
+</div>
 `,
     data: {
         times: 0
@@ -12,14 +16,14 @@ var app = new Vue({
         }
     },
     methods: {
-        addTimes() {
-
+        add() {
+            this.times ++;
+        },
+        sub() {
+            this.times --;
         }
     },
     created() {
-        setInterval(() => {
-            this.times ++;
-        }, 1000);
     }
 });
 
